@@ -49,11 +49,14 @@ class Materia:
             if a.id_materia == self.id:
                 if a.year_inicio == datetime.datetime.now().year:
                     if self.duracion == 'Anual':
-                        return 'Cursando'
+                        if datetime.datetime.now().month < 10:
+                            return 'Cursando'
+                        else:
+                            return 'Regular'
                     else:
                         if datetime.datetime.now().month < 7:
                             return 'Cursando'
-                        elif a.cuatrimestre_inicio == 2:
+                        elif a.cuatrimestre_inicio == 2 and datetime.datetime.now().month < 10:
                             return 'Cursando'
                         else:
                             return 'Regular'
