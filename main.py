@@ -137,7 +137,7 @@ def menu():
         elif opc == 3:
             id_materia = int(input('Ingrese la id de la materia: '))
             materia = base_datos.traer_materia(id_materia)
-            if materia.es_rendible(base_datos) == ' (Rendible)':
+            if materia.es_rendible(base_datos) == ' (Rendible)' or materia.get_estado(base_datos) == 'Cursando':
                 print('Materia: ' + materia.nombre + ' (' + materia.abreviacion + ')')
                 fecha = input('Ingrese la fecha de aprobacion: ')
                 nota = int(input('Ingrese la nota final: '))
